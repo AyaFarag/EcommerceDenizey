@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Ecommerce.Domain
         public string Description { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Required]
         public int Stock { get; set; }
@@ -30,6 +31,7 @@ namespace Ecommerce.Domain
         public ICollection<Review> Reviews { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
 
+        [NotMapped]
         public ICollection<CartItem> CartItems { get; set; }
 
     }

@@ -12,7 +12,7 @@ namespace Ecommerce.Domain
 
         public int UserId { get; set; } 
         public User User { get; set; }
-        public decimal Total { get ; set; }
+        public double Total { get ; set; }
 
        public ICollection<CartItem> CartItems { get; set; }
     }

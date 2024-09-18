@@ -12,8 +12,8 @@ namespace Ecommerce.Domain
         public DateTime OrderDate { get; set; }
 
         [Required]
-        public decimal TotalAmount { get; set; } // 800
-       // public OrderStatus status { get; set; }
+        public double TotalAmount { get; set; } 
+        public int status { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }

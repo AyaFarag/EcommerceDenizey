@@ -20,6 +20,6 @@ namespace Ecommerce.Domain
         public int Quantity { get; set; } // 2
 
         [Required]
-        public decimal UnitPrice { get; set; } //200
+        public double UnitPrice { get; set; } //200
     }
 }
