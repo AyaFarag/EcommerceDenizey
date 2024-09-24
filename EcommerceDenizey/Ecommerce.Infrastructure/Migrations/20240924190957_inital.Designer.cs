@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(DBContextApplication))]
-    [Migration("20240918185447_inital")]
+    [Migration("20240924190957_inital")]
     partial class inital
     {
         /// <inheritdoc />
@@ -41,6 +41,33 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Cat 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Cat 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Cat 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Cat 4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Cat 5"
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Image", b =>
@@ -216,6 +243,32 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "a@gmail.com",
+                            FirstName = "Ahmed",
+                            LastName = "Mohamed",
+                            Password = "123456"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "ah@gmail.com",
+                            FirstName = "Ibrahim",
+                            LastName = "Mohamed",
+                            Password = "123456"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "f@gmail.com",
+                            FirstName = "Fath",
+                            LastName = "Mohamed",
+                            Password = "123456"
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Image", b =>

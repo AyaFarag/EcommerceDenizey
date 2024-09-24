@@ -1,20 +1,16 @@
-using Ecommerce.Application.Contracts.Interface;
-using Ecommerce.Application.Contracts.Services;
-using Ecommerce.Application.Repository;
-using Ecommerce.Infrastructure.Presistance;
-using Ecommerce.Infrastructure.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Ecommerce.API;
+using Ecommerce.Infrastructure.Extentions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<DBContextApplication>(options =>
-     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddAPIServices(builder.Configuration);
 
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -10,13 +10,13 @@ namespace Ecommerce.Application.Contracts.Interface
 {
     public interface ICategoryService
     {
-        public Task<List<Category>> GetAllCategories();
+        public Task<IEnumerable<Category>> GetAllCategories();
 
         public Task<Category> GetCategoryById(int id);
 
-        public Task CreateCategory(Category category);
+        public Task CreateCategory(DTOCategory categoryDTO);
 
-        public Task UpdateCategory(Category category);
+        public Task UpdateCategory(DTOUpdateCategory category);
 
         public Task DeleteCategory(int id);
     }

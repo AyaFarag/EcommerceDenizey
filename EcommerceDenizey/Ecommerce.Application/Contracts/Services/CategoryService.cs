@@ -1,47 +1,50 @@
-﻿using Ecommerce.Application.Contracts.Interface;
+﻿using AutoMapper;
+using Ecommerce.Application.Contracts.Interface;
+using Ecommerce.Application.DTOs;
 using Ecommerce.Application.Repository;
 using Ecommerce.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Ecommerce.Application.Contracts.Services
 {
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
+            _mapper = mapper;
         }
-        public async Task CreateCategory(Category category)
+        public async Task CreateCategory(DTOCategory categoryDTO)
         {
-            await _categoryRepository.createCategory(category);
-        }
-
-        public Task DeleteCategory(int id)
-        {
-            throw new NotImplementedException();
+            var catmapModel = _mapper.Map<Category>(categoryDTO);
+            await _categoryRepository.AddAsync(catmapModel);
         }
 
-        public Task<List<Category>> GetAllCategories()
+        public async Task UpdateCategory(DTOUpdateCategory category)
         {
-            throw new NotImplementedException();
+            var catmapModel = _mapper.Map<Category>(category);
+            await _categoryRepository.UpdateAsync(catmapModel);
+        }
+        public async Task DeleteCategory(int id)
+        {
+            await _categoryRepository.DeleteAsync(id);
         }
 
-        public Task<Category> GetCategoryById(int id)
+        public async Task<IEnumerable<Category>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return await _categoryRepository.GetAllAsync();
+        }
+
+        public async Task<Category> GetCategoryById(int id)
+        {
+            return await _categoryRepository.GetByIdAsync(id);
         }
 
     
 
-        public Task UpdateCategory(Category category)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

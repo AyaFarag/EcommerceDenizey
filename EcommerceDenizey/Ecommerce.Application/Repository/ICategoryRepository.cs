@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Application.Repository
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category>
     {
-        public Task createCategory(Category category);
-        public Task<Category> GetCategoryById(int Id);
+        
     }
 }

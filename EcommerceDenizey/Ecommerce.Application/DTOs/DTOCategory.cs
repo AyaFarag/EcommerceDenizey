@@ -8,5 +8,12 @@ namespace Ecommerce.Application.DTOs
 {
     public class DTOCategory
     {
+        public string Name { get; set; }
+    }
+
+    public class DTOUpdateCategory
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

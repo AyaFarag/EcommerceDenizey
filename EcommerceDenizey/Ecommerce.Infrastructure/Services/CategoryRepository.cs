@@ -9,23 +9,10 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Infrastructure.Services
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : Repository<Category> , ICategoryRepository
     {
-        private readonly DBContextApplication _context;
-
-        public CategoryRepository(DBContextApplication context)
+        public CategoryRepository(DBContextApplication context) : base(context)
         {
-            _context = context;
-        }
-        public async Task createCategory(Category category)
-        {
-            await _context.Categories.AddAsync(new Category() { Id = 1 , Name= "Cat 1" });
-        }
-
-
-        public Task<Category> GetCategoryById(int Id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
