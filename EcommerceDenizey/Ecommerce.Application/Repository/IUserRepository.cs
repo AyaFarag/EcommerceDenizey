@@ -11,5 +11,7 @@ namespace Ecommerce.Application.Repository
     {
         // Additional methods specific to user if needed
         Task AssignRoleToUserAsync(int userId, int roleId);
+
+        Task<List<Order>> GetUserOrderHistory(int userid);
     }
 }

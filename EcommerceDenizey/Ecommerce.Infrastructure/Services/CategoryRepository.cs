@@ -14,5 +14,15 @@ namespace Ecommerce.Infrastructure.Services
         public CategoryRepository(DBContextApplication context) : base(context)
         {
         }
+
+        public Task AddMultiProductsToCategory(int categoryId, int[] productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Category> GetCategorywithProducts(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

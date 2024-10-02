@@ -29,6 +29,11 @@ namespace Ecommerce.Domain
         [NotMapped]
         public Cart Cart { get; set; }
 
+        public ICollection<ReplyReview> ReplyReviews { get; set; }
+
+        public ICollection<QuestionAnswer> QuestionAnswers { get; set; }
+
+
 
     }
 }
